@@ -2,7 +2,9 @@
 
 namespace UiBuilder\Components;
 
+use Livewire\Livewire;
 use Illuminate\Support\ServiceProvider;
+use UiBuilder\Components\Modals\ModalForm;
 
 class ComponentsServiceProvider extends ServiceProvider
 {
@@ -14,20 +16,20 @@ class ComponentsServiceProvider extends ServiceProvider
         /*
          * Optional methods to load your package assets
          */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'components');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'components');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'components');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'components');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
+        Livewire::component('modal-form',ModalForm::class);
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('components.php'),
             ], 'config');
 
             // Publishing the views.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/components'),
-            ], 'views');*/
+            ], 'views');
 
             // Publishing assets.
             /*$this->publishes([
@@ -35,9 +37,9 @@ class ComponentsServiceProvider extends ServiceProvider
             ], 'assets');*/
 
             // Publishing the translation files.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/lang' => resource_path('lang/vendor/components'),
-            ], 'lang');*/
+            ], 'lang');
 
             // Registering package commands.
             // $this->commands([]);
