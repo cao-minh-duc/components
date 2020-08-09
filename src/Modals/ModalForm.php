@@ -13,10 +13,13 @@ class ModalForm extends Form implements HasResource
     public $hide = true;
 
     public $title;
+    
+    public $action;
 
-    public function mount(HasCastAttributes $model, string $title = '')
+    public function mount(HasCastAttributes $model, $title = null, $action = null)
     {
         $this->title = $title;
+        $this->action = $action;
         parent::mount($model);
     }
 
