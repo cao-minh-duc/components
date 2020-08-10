@@ -1,6 +1,6 @@
 <div>
     
-    <x-modal.buttons.basic wire:click="open" >{{  $action ?? __('components::button.create') }}</x-modal.buttons.basic>
+    <x-modal.buttons.basic wire:click="create" >{{  $action ?? __('components::button.create') }}</x-modal.buttons.basic>
     
     <x-modal :hide="$hide">
         <x-slot name="header">
