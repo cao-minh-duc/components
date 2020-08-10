@@ -38,7 +38,7 @@ class ModalForm extends Form implements HasResource
         $this->reset('hide','values');
     }
 
-    public function onCreate()
+    public function onCreated()
     {
         $this->open();
     }
